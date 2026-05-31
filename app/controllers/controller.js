@@ -1,21 +1,40 @@
 class Controller {
 
-    constructor(model,view){
+    constructor(model, view){
 
-        this.model=model;
-        this.view=view;
+        this.model = model;
+        this.view = view;
 
     }
 
     adicionar(){
 
+        const usuario =
+        localStorage.getItem(
+        "usuarioLogado"
+        );
+
+        if(!usuario){
+
+            alert(
+            "Faça login primeiro."
+            );
+
+            window.location.href =
+            "login.html";
+
+            return;
+        }
+
         const titulo =
         document.getElementById(
-        "titulo").value;
+        "titulo"
+        ).value;
 
         const descricao =
         document.getElementById(
-        "descricao").value;
+        "descricao"
+        ).value;
 
         this.model.adicionar(
             titulo,
