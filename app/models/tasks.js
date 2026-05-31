@@ -1,32 +1,71 @@
 class Task {
-    constructor(titulo, descricao) {
+
+    constructor(
+        titulo,
+        descricao,
+        dono
+    ) {
+
         this.titulo = titulo;
         this.descricao = descricao;
+        this.dono = dono;
         this.concluida = false;
+
     }
+
 }
 
 class TaskModel {
 
     constructor() {
+
         this.tasks = [];
+
     }
 
     adicionar(titulo, descricao) {
+
+        const usuario =
+        localStorage.getItem(
+        "usuarioLogado"
+        );
+
         const tarefa =
         new Task(
             titulo,
-            descricao
+            descricao,
+            usuario
         );
 
         this.tasks.push(tarefa);
+
     }
 
     listar() {
+
         return this.tasks;
+
     }
 
     concluir(index) {
+
+        const usuario =
+        localStorage.getItem(
+        "usuarioLogado"
+        );
+
+        if(
+        this.tasks[index].dono
+        !== usuario
+        ){
+
+            alert(
+            "Você só pode alterar seus próprios registros."
+            );
+
+            return;
+
+        }
 
         this.tasks[index].concluida =
         !this.tasks[index].concluida;
@@ -35,10 +74,32 @@ class TaskModel {
 
     excluir(index) {
 
-        this.tasks.splice(index,1);
+        const usuario =
+        localStorage.getItem(
+        "usuarioLogado"
+        );
+
+        if(
+        this.tasks[index].dono
+        !== usuario
+        ){
+
+            alert(
+            "Você só pode excluir seus próprios registros."
+            );
+
+            return;
+
+        }
+
+        this.tasks.splice(
+            index,
+            1
+        );
 
     }
 
 }
 
-window.TaskModel = TaskModel;
+window.TaskModel =
+TaskModel;
