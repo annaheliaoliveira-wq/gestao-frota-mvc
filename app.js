@@ -1,11 +1,3 @@
-alert("JavaScript funcionando");
-
-alert(typeof TaskModel);
-
-alert(typeof View);
-
-alert(typeof Controller);
-
 const model = new TaskModel();
 
 const view = new View();
