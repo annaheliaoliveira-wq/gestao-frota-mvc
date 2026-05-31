@@ -5,7 +5,7 @@ class View {
         const lista =
         document.getElementById("lista");
 
-        lista.innerHTML="";
+        lista.innerHTML = "";
 
         tasks.forEach((task,index)=>{
 
@@ -13,12 +13,25 @@ class View {
 
             <li>
 
-            ${task.titulo}
-            - ${task.descricao}
+            <strong>${task.titulo}</strong>
 
+            <br>
+
+            ${task.descricao}
+
+            <br>
+
+            Responsável:
+            ${task.dono}
+
+            <br>
+
+            Status:
             ${task.concluida ?
             "✔ Concluída" :
             "Pendente"}
+
+            <br><br>
 
             <button onclick=
             "controller.concluir(${index})">
@@ -34,7 +47,10 @@ class View {
 
             </button>
 
+            <hr>
+
             </li>
+
             `;
         });
 
