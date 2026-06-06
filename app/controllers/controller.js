@@ -61,6 +61,44 @@ class Controller {
 
     }
 
+    alterar(id){
+
+        this.model.alterar(id);
+
+        this.atualizar();
+
+    }
+
+    buscarPorId(){
+
+        const id =
+        prompt(
+        "Digite o ID:"
+        );
+
+        const tarefa =
+        this.model.buscarPorId(id);
+
+        if(tarefa){
+
+            alert(
+
+            "ID: " + tarefa.id +
+            "\nTítulo: " + tarefa.titulo +
+            "\nDescrição: " + tarefa.descricao
+
+            );
+
+        }else{
+
+            alert(
+            "Registro não encontrado."
+            );
+
+        }
+
+    }
+
     atualizar(){
 
         this.view.renderizar(
@@ -71,4 +109,5 @@ class Controller {
 
 }
 
-window.Controller = Controller;
+window.Controller =
+Controller;
