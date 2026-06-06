@@ -4,39 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
 
     <title>Gestão de Frota</title>
+
+    <style>
+
+        .linha:nth-child(odd) {
+            background: #f2f2f2;
+        }
+
+        .linha:nth-child(even) {
+            background: #ffffff;
+        }
+
+        .linha {
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
     <h1>
-    Sistema de Gestão de Frota
+        Sistema de Gestão de Frota
     </h1>
+
     <a href="cadastro.html">
-Cadastro
-</a>
+        Cadastro
+    </a>
 
-|
+    |
 
-<a href="login.html">
-Login
-</a>
+    <a href="login.html">
+        Login
+    </a>
 
-<hr>
+    <hr>
 
     <input
-    type="text"
-    id="titulo"
-    placeholder="Título da tarefa">
+        type="text"
+        id="titulo"
+        placeholder="Título da tarefa">
 
     <br><br>
 
     <input
-    type="text"
-    id="descricao"
-    placeholder="Descrição">
+        type="text"
+        id="descricao"
+        placeholder="Descrição">
 
     <br><br>
 
@@ -44,17 +63,21 @@ Login
         Adicionar
     </button>
 
+    <button onclick="controller.buscarPorId()">
+        Buscar por ID
+    </button>
+
     <hr>
 
     <ul id="lista"></ul>
 
-<script src="app/models/tasks.js"></script>
+    <script src="app/models/tasks.js"></script>
 
-<script src="app/views/view.js"></script>
+    <script src="app/views/view.js"></script>
 
-<script src="app/controllers/controller.js"></script>
+    <script src="app/controllers/controller.js"></script>
 
-<script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
 
