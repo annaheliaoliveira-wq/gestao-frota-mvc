@@ -3,17 +3,27 @@ class View {
     renderizar(tasks){
 
         const lista =
-        document.getElementById("lista");
+        document.getElementById(
+        "lista"
+        );
 
         lista.innerHTML = "";
 
-        tasks.forEach((task,index)=>{
+        tasks.forEach(
+        (task,index)=>{
 
             lista.innerHTML += `
 
-            <li>
+            <li class="linha">
 
-            <strong>${task.titulo}</strong>
+            <strong>
+            ${task.titulo}
+            </strong>
+
+            <br>
+
+            ID:
+            ${task.id}
 
             <br>
 
@@ -27,9 +37,13 @@ class View {
             <br>
 
             Status:
-            ${task.concluida ?
-            "✔ Concluída" :
-            "Pendente"}
+            ${
+            task.concluida
+            ?
+            "✔ Concluída"
+            :
+            "Pendente"
+            }
 
             <br><br>
 
@@ -37,6 +51,13 @@ class View {
             "controller.concluir(${index})">
 
             Concluir
+
+            </button>
+
+            <button onclick=
+            "controller.alterar(${task.id})">
+
+            Editar
 
             </button>
 
@@ -52,10 +73,12 @@ class View {
             </li>
 
             `;
+
         });
 
     }
 
 }
 
-window.View = View;
+window.View =
+View;
